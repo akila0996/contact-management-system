@@ -42,13 +42,15 @@ function showContact(array){
         <td>${data.name} </td>
         <td>${data.email}  </td>
         <td>${data.contact} </td>
-        <td><button onclick="editItem(${data.id})"><i class="fa-solid fa-pencil"></i></button></td>
+        <td><button onclick="editItem(${index})"><i class="fa-solid fa-pencil"></i></button></td>
         <td><button onclick="removeItem(${index})"><i class="fa-solid fa-trash-can"></i></button> </td>
         <td><button><i class="fa-solid fa-envelope-open"></i></button></td>
        </tr>`;
     
        resultElement.appendChild(tableElement)
     });
+
+   
 }
 
 
@@ -61,10 +63,12 @@ function removeItem(position){
 
 function editItem(id){
    contactList.find(contact=>contact.id === id)
-   usernameElement.value = contactList[id].name;
+   idnoElement.value = contactList[id].id
+   usernameElement.value = contactList[id].name
    emailElement.value = contactList[id].email
    contactElement.value = contactList[id].contact
    showContact(contactList)
+   localStorage.setItem('contactList', JSON.stringify(contactList))
 }
 
 showContact(contactList)
