@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: url(images/contact.png) no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+form#field {
+    height: 390px;
+    text-align: center;
+    background-color: #341e0640;
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    color: cornsilk;
+    border-radius: 20px;
+}
+input {
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin: 3px;
+}
+button#submit {
+    background-color: lightslategray;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#submit:hover{
+    background-color: burlywood;
+}
+div#result {
+    min-width: 400px;
+    min-height: 200px;
+    background-color: #5d350b91;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 24px;
+    color: cornsilk;
+}
+th {
+    color: black;
+}
+td {
+    text-align: justify;
+    padding: 10px;
+}
