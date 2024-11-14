@@ -60,9 +60,7 @@ function removeItem(position){
 }
 
 function editItem(id){
-    debugger
    contactList.find(contact=>contact.id === id)
-   debugger
    usernameElement.value = contactList[id].name;
    emailElement.value = contactList[id].email
    contactElement.value = contactList[id].contact
