@@ -27,6 +27,15 @@ button#submit {
     border-radius: 10px;
     cursor: pointer;
 }
+button#update {
+    background-color: lightslategray;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#update:hover{
+    background-color: burlywood;
+}
 #submit:hover{
     background-color: burlywood;
 }

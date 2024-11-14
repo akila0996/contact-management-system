@@ -7,8 +7,10 @@ let contactElement = document.getElementById("mobile");
 let buttonElement = document.getElementById("submit");
 let resultElement =document.getElementById("result");
 let errorElement =document.getElementById("error");
+let updateElement = document.getElementById("update");
 
 buttonElement.addEventListener('click',function(){
+
 
     let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
 
@@ -18,9 +20,9 @@ buttonElement.addEventListener('click',function(){
 
     localStorage.setItem('contactList', JSON.stringify(contactList))
 
+
 })
-
-
+ 
 function showContact(array){
 
     resultElement.innerHTML = ''
@@ -62,6 +64,8 @@ function removeItem(position){
 }
 
 function editItem(id){
+   buttonElement.style.display = "none"
+
    contactList.find(contact=>contact.id === id)
    idnoElement.value = contactList[id].id
    usernameElement.value = contactList[id].name
@@ -71,4 +75,14 @@ function editItem(id){
    localStorage.setItem('contactList', JSON.stringify(contactList))
 }
 
+updateElement.addEventListener('click',function(){
+    debugger
+    let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
+    debugger
+    contactList.indexOf(obj=>obj.id === id)
+    debugger
+    showContact(contactList)
+    localStorage.setItem('contactList', JSON.stringify(contactList))
+
+})
 showContact(contactList)
