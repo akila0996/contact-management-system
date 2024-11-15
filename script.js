@@ -10,17 +10,11 @@ let errorElement =document.getElementById("error");
 let updateElement = document.getElementById("update");
 
 buttonElement.addEventListener('click',function(){
-
-
+   
     let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
-
     contactList.push(obj);
-
     showContact(contactList)
-
     localStorage.setItem('contactList', JSON.stringify(contactList))
-
-
 })
  
 function showContact(array){
@@ -76,13 +70,17 @@ function editItem(id){
 }
 
 updateElement.addEventListener('click',function(){
-    debugger
+
     let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
-    debugger
     contactList.indexOf(obj=>obj.id === id)
-    debugger
+    obj.id = idnoElement.value
+    obj.name = usernameElement.value
+    obj.email = emailElement.value
+    obj.contact = contactElement.value
+    contactList.push(obj);
     showContact(contactList)
     localStorage.setItem('contactList', JSON.stringify(contactList))
 
 })
+
 showContact(contactList)
