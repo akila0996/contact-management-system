@@ -9,12 +9,16 @@ let resultElement =document.getElementById("result");
 let errorElement =document.getElementById("error");
 let updateElement = document.getElementById("update");
 
-buttonElement.addEventListener('click',function(){
-   
-    let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
-    contactList.push(obj);
-    showContact(contactList)
-    localStorage.setItem('contactList', JSON.stringify(contactList))
+buttonElement.addEventListener('click',function(event){
+    event.preventDefault()
+    if(idnoElement.value === '' || usernameElement.value === '' || emailElement.value === '' || contactElement.value === ''){
+        errorElement.innerHTML = "fill the fields!"
+    }else { 
+        let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
+        contactList.push(obj);
+        showContact(contactList)
+        localStorage.setItem('contactList', JSON.stringify(contactList))
+    }
 })
  
 function showContact(array){
@@ -33,14 +37,14 @@ function showContact(array){
                           
     array.forEach((data,index) => {
       
-    tableElement.innerHTML +=`<tr>
+    tableElement.innerHTML +=`<tr class="table-td">
         <td>${data.id} </td>
         <td>${data.name} </td>
         <td>${data.email}  </td>
         <td>${data.contact} </td>
         <td><button onclick="editItem(${index})"><i class="fa-solid fa-pencil"></i></button></td>
         <td><button onclick="removeItem(${index})"><i class="fa-solid fa-trash-can"></i></button> </td>
-        <td><button><i class="fa-solid fa-envelope-open"></i></button></td>
+        <td><button><i class="fa-solid fa-eye"></i></button></td>
        </tr>`;
     
        resultElement.appendChild(tableElement)
@@ -59,6 +63,7 @@ function removeItem(position){
 
 function editItem(id){
    buttonElement.style.display = "none"
+   updateElement.style.display = "block"
 
    contactList.find(contact=>contact.id === id)
    idnoElement.value = contactList[id].id
@@ -70,17 +75,16 @@ function editItem(id){
 }
 
 updateElement.addEventListener('click',function(){
-
-    let obj ={id:idnoElement.value , name:usernameElement.value, email:emailElement.value , contact:contactElement.value}
-    contactList.indexOf(obj=>obj.id === id)
-    obj.id = idnoElement.value
-    obj.name = usernameElement.value
-    obj.email = emailElement.value
-    obj.contact = contactElement.value
-    contactList.push(obj);
-    showContact(contactList)
-    localStorage.setItem('contactList', JSON.stringify(contactList))
-
+ contactList = contactList.map(contact=>{
+    if(contact.id === idnoElement.value){
+        contact.name = usernameElement.value
+        contact.email = emailElement.value
+        contact.contact = contactElement.value 
+    }
+    return contact
+ })
+ showContact(contactList)
+   localStorage.setItem('contactList', JSON.stringify(contactList))
 })
 
 showContact(contactList)

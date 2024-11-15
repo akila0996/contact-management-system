@@ -1,8 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    background: url(images/contact.png) no-repeat;
-    background-size: cover;
+   background-color: dimgrey;
     text-align: center;
 }
 form#field {
@@ -32,6 +31,9 @@ button#update {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 42rem;
 }
 #update:hover{
     background-color: burlywood;
@@ -54,4 +56,7 @@ th {
 td {
     text-align: justify;
     padding: 10px;
+}
+.table-td:hover{
+    background-color: #27231f59;
 }
