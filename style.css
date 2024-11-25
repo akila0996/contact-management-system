@@ -1,15 +1,19 @@
 body {
     display: flex;
     justify-content: center;
-   background-color: dimgrey;
+    background-image: url(images/photo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#container h1{
     text-align: center;
 }
 form#field {
     height: 390px;
     text-align: center;
-    background-color: #341e0640;
+    background-color: #341e06a3;
     width: 100%;
-    padding: 20px;
+    padding: 35px;
     font-size: 20px;
     color: cornsilk;
     border-radius: 20px;
@@ -44,13 +48,14 @@ button#update {
 div#result {
     min-width: 400px;
     min-height: 200px;
-    background-color: #5d350b91;
+    background-color: #6a523adb;
     border-radius: 20px;
     padding: 20px;
     font-size: 24px;
     color: cornsilk;
 }
 th {
+    text-align: center;
     color: black;
 }
 td {
@@ -58,5 +63,30 @@ td {
     padding: 10px;
 }
 .table-td:hover{
-    background-color: #27231f59;
+    background-color: #27231fbf;
+}
+#error{
+    color: #fff200db;
+}
+
+.modal{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    text-align: center;
+    font-size: 25px;
+    background: rgb(78 73 73 / 44%);
+    backdrop-filter: blur(10px);
+  }
+  .details {
+    color: black;
+    margin-top: 10rem;
+}
+.modal >button {
+    position: relative;
+    left: 44rem;
 }
